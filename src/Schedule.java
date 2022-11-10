@@ -16,8 +16,9 @@ public class Schedule {
         int day=(int)(Math.random()*7)+1;
         return day;
     }
-    public boolean morning() {
+    public String morning() {
         int m = 0;
+        String morn="";
         if (event.indexOf("2") != -1) {
             m++;
         }
@@ -28,15 +29,16 @@ public class Schedule {
             m--;
         }
         if(m>1){
-            return true;
+            morn="Your morning schedule is a little bit stressful, try to fix it!";
     }
         else{
-            return false;
+            morn= "You have a healthy morning schedule!";
         }
-
+            return morn;
     }
-    public boolean noon(){
+    public String  noon(){
         int n=0;
+        String noon="";
         if (event.indexOf("1")!=-1){
             n++;
         }
@@ -48,11 +50,12 @@ public class Schedule {
 
         }
         if (n>1){
-            return true;
+            noon="Your noon schedule is not healthy, try to fix it!";
         }
         else{
-            return false;
+            noon= "What a nice noon time you have!";
         }
+        return noon;
     }
     public boolean afternoon(){
         int a=0;
