@@ -7,14 +7,36 @@ public class Schedule {
         this.event=event;
 
     }
-    public String changeSchedule(String event){
+    public void  changeSchedule(String event){
         this.event=event;
-        return event;
+
     }
 
-    public int dayPick(){
+    public String dayPick(){
         int day=(int)(Math.random()*7)+1;
-        return day;
+        String d= "";
+        if (day==1){
+            d="Monday";
+        }
+        if (day==2){
+            d="Tuesday";
+        }
+        if (day==3){
+            d="Wednesday";
+        }
+        if (day==4){
+            d="Thursday";
+        }
+        if (day==5){
+            d="Friday";
+        }
+        if (day==6){
+            d="Saturday";
+        }
+        else{
+            d="Sunday";
+        }
+        return d;
     }
     public String morning() {
         int m = 0;
@@ -36,7 +58,7 @@ public class Schedule {
         }
             return morn;
     }
-    public String  noon(){
+    public String noon(){
         int n=0;
         String noon="";
         if (event.indexOf("1")!=-1){
@@ -57,8 +79,9 @@ public class Schedule {
         }
         return noon;
     }
-    public boolean afternoon(){
+    public String afternoon(){
         int a=0;
+        String anoon="";
         if(event.contains("2")){
             a++;
         }
@@ -69,14 +92,16 @@ public class Schedule {
             a--;
         }
         if(a!=1){
-            return false;
+            anoon="Don't forget to watch the sunset!\n";
         }
         else{
-            return true;
+            anoon="Don't forget to watch the sunset!\n";
         }
+     return anoon;
     }
-    public boolean evening(){
+    public String evening(){
         int e=0;
+        String night="";
         if(event.contains("5")){
             e=e+2;
         }
@@ -90,38 +115,18 @@ public class Schedule {
             e++;
         }
         if(e<1){
-            return true;
+
+            night="Don't stress yourself out at night! Let's relax!";
         }
         else{
-            return false;
+           night= "Good night! Get ready for your next day of the adventure!\n";
         }
+        return night;
     }
+
     public String toString(){
-        String result="";
-        if(!morning()){
-           result+="You have a healthy morning schedule!\n";
-        }
-        if (morning()){
-            result+="Your morning schedule is a little bit stressful, try to fix it!\n";
-        }
-        if(!noon()){
-            result+="What a nice noon time you have!\n";
-        }
-        if(noon()){
-            result+="Your noon schedule is not healthy, try to fix it!\n";
-        }
-        if(!(afternoon())){
-            result+="Don't forget to watch the sunset!\n";
-        }
-        if(afternoon()){
-            result+="Make another afternoon schedule, relax, it's almost the end of the day!\n";
-        }
-        if(!evening()){
-            result+="Good night! Get ready for your next day of the adventure!\n";
-        }
-        if(evening()){
-            result+="Don't stress yourself out at night! Let's relax!";
-        }
+        String day= "Type in your " + dayPick() + " Schedule:";
+        String result= day  + morning()  + noon()  + afternoon()  + evening();
         return result;
     }
 }
