@@ -1,24 +1,42 @@
 import java.util.Scanner;
 public class RunnerSchedule {
     public static void main(String[] args) {
-        System.out.println("Type numbers to represent your schedule!");
-        System.out.println("1 represent work time, 2 represent screen time, 3 represent sports ");
-        System.out.println("4 represents meal, 5 represents sleep , 6 represents free time");
-        System.out.println("Type in your morning schedule: ");
+        Schedule input= new Schedule("");
+        System.out.println(input.toString());
         Scanner m = new Scanner(System.in);
         String morning= m.nextLine();
-        Schedule r = new Schedule(morning);
-        if(r.morning().indexOf("Your")!=-1){
-            while(r.morning().indexOf("Your")!=-1){
-                System.out.println(r.morning());
+        input.changeSchedule(morning);
+
+        System.out.println(input.limit());
+        m.nextLine();
+
+
+        if(input.morning().indexOf("Your")!=-1){
+            while(input.morning().indexOf("Your")!=-1){
+                System.out.println(input.morning());
                 morning=m.nextLine();
-                r.changeSchedule(morning);
+                input.changeSchedule(morning);
 
             }
         } else{
-            System.out.print(r.morning());
+            System.out.println(input.morning());
+            String remorning = input.morning();
         }
-
+        System.out.println("Type in your noon schedule: ");
+        Scanner n=new Scanner(System.in);
+        String noon=n.nextLine();
+        input.changeSchedule(noon);
+        if(input.noon().indexOf("Your")!=-1){
+            while(input.noon().contains("Your")){
+                System.out.println(input.noon());
+                noon=n.nextLine();
+                input.changeSchedule(noon);
+            }
+        }
+        else{
+            System.out.println(input.noon());
+            String renoon = input.noon();
+        }
 
 
     }

@@ -3,6 +3,10 @@ public class Schedule {
 
     private String event;
 
+    private String letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    private String symbol = "!@#$%^&*()_+<>,./?;'-~";
+
     public Schedule(String event ){
         this.event=event;
 
@@ -125,8 +129,72 @@ public class Schedule {
     }
 
     public String toString(){
-        String day= "Type in your " + dayPick() + " Schedule:";
-        String result= day  + morning()  + noon()  + afternoon()  + evening();
-        return result;
+        String day=  "Type in your " + dayPick() + " Schedule starting with your morning schedule:  ";
+
+        String rule= "1 represent work time, 2 represent screen time, 3 represent sports \n";
+        String r2="4 represents meal, 5 represents sleep , 6 represents free time\n";
+        String r3= "Type in numbers to represent your schedule\n";
+        return r3+ rule + r2 + day;
+
+    }
+    private boolean checkLetter(){
+        int i=0;
+        String sub = "";
+        int count = 0;
+        while(i<=letter.length()){
+           sub=letter.substring(i,i+1);
+           i++;
+           count++;
+        }
+        if (count!=0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    private boolean checkSymbol(){
+        int i=0;
+        String sub = "";
+        int count = 0;
+        while(i<=symbol.length()){
+            sub=symbol.substring(i,i+1);
+            i++;
+            count++;
+        }
+        if (count!=0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    public String limit() {
+        String letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String symbol = "!@#$%^&*()_+<>,./?;'-~";
+        if (event.length() > 3) {
+            if (!checkLetter() && !checkSymbol()) {
+                return "You can only enter at most 3 numbers, letters and symbols are not valid input";
+            }
+            if (!checkLetter()) {
+                return "You can only enter at most 3 numbers, letters are not valid input";
+            }
+            if (!checkSymbol()) {
+                return "You can only enter at most 3 letters, symbols are not valid input";
+            }
+        } else if (!checkSymbol() || !checkLetter()) {
+            if (!checkSymbol() && !checkLetter()) {
+                return "Symbols and letters are not valid input";
+            }
+            if (!checkSymbol()) {
+                return "Symbols are not valid input";
+            }
+            if (!checkLetter()) {
+                return "Letters are not valid input";
+            }
+        } else {
+            return "Press enter to continue";
+        }
+return ;
     }
 }
