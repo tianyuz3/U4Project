@@ -7,8 +7,11 @@ public class RunnerSchedule {
         String morning= m.nextLine();
         input.changeSchedule(morning);
 
-        System.out.println(input.limit());
-        m.nextLine();
+        while(input.limit().indexOf("Press")==-1) {
+            System.out.println(input.limit());
+            morning= m.nextLine();
+            input.changeSchedule(morning);
+        }
 
 
         if(input.morning().indexOf("Your")!=-1){

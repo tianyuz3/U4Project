@@ -137,41 +137,54 @@ public class Schedule {
         return r3+ rule + r2 + day;
 
     }
-    private boolean checkLetter(){
-        int i=0;
+    public boolean checkLetter() {
+        int i = 0;
         String sub = "";
         int count = 0;
-        while(i<=letter.length()){
-           sub=letter.substring(i,i+1);
-           i++;
-           count++;
+        while (i < letter.length()) {
+            sub = letter.substring(i, i + 1);
+            if (event.indexOf(sub) != -1) {
+                i++;
+                count++;
+            } else {
+                i++;
+
+            }
         }
-        if (count!=0){
-            return false;
-        }
-        else{
-            return true;
-        }
+            if (count != 0) {
+                return false;
+            } else if (count==0)
+            {
+                return true;
+            }
+
+                return true;
     }
-    private boolean checkSymbol(){
-        int i=0;
-        String sub = "";
+    public boolean checkSymbol() {
+
+        String sub;
         int count = 0;
-        while(i<=symbol.length()){
-            sub=symbol.substring(i,i+1);
-            i++;
-            count++;
+        int i = 0;
+        while (i < symbol.length()) {
+            sub = symbol.substring(i, i + 1);
+            if (event.indexOf(sub) != -1) {
+                i++;
+                count++;
+            } else {
+                i++;
+            }
         }
-        if (count!=0){
-            return false;
-        }
-        else{
-            return true;
-        }
+            if (count != 0) {
+                return false;
+            } else if(count==0)
+            {
+                return true;
+            }
+
+                return false;
     }
     public String limit() {
-        String letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String symbol = "!@#$%^&*()_+<>,./?;'-~";
+
         if (event.length() > 3) {
             if (!checkLetter() && !checkSymbol()) {
                 return "You can only enter at most 3 numbers, letters and symbols are not valid input";
@@ -195,6 +208,28 @@ public class Schedule {
         } else {
             return "Press enter to continue";
         }
-return ;
+            return "You can only include at most three events in your schedule";
+    }
+    public String toSchedule(String numeric){
+        String result="";
+        if (numeric.indexOf("1")!=-1){
+            result+="Work time\n";
+        }
+        if(numeric.indexOf("2")!=-1){
+            result+="Screen time\n";
+        }
+        if (numeric.indexOf("3")!=-1){
+            result+="sports";
+        }
+        if (numeric.indexOf("4")!=-1){
+            result+="meal";
+        }
+        if(numeric.indexOf("5")!=-1){
+            result+="sleep";
+        }
+        if(numeric.indexOf("6")!=-1){
+            result+="free time";
+        }
+        return result;
     }
 }
