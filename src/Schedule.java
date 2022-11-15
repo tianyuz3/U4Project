@@ -219,16 +219,16 @@ public class Schedule {
             result+="Screen time\n";
         }
         if (numeric.indexOf("3")!=-1){
-            result+="sports";
+            result+="sports\n";
         }
         if (numeric.indexOf("4")!=-1){
-            result+="meal";
+            result+="meal\n";
         }
         if(numeric.indexOf("5")!=-1){
-            result+="sleep";
+            result+="sleep\n";
         }
         if(numeric.indexOf("6")!=-1){
-            result+="free time";
+            result+="free time\n";
         }
         return result;
     }
