@@ -37,7 +37,7 @@ public class Schedule {
         if (day==6){
             d="Saturday";
         }
-        else{
+        else if(day==7){
             d="Sunday";
         }
         return d;
@@ -95,11 +95,11 @@ public class Schedule {
         if(event.contains("6") || event.contains("1")){
             a--;
         }
-        if(a!=1){
-            anoon="Don't forget to watch the sunset!\n";
+        if(a==1){
+            anoon="Your afternoon schedule is too stressful, fix it!";
         }
         else{
-            anoon="Don't forget to watch the sunset!\n";
+            anoon="Don't forget to watch the sunset!";
         }
      return anoon;
     }
@@ -123,18 +123,18 @@ public class Schedule {
             night="Don't stress yourself out at night! Let's relax!";
         }
         else{
-           night= "Good night! Get ready for your next day of the adventure!\n";
+           night= "Good night! Get ready for your next day of the adventure!";
         }
         return night;
     }
 
     public String toString(){
-        String day=  "Type in your " + dayPick() + " Schedule starting with your morning schedule:  ";
-
+        String day= "Type in your " + dayPick() + " Schedule starting with morning: ";
         String rule= "1 represent work time, 2 represent screen time, 3 represent sports \n";
         String r2="4 represents meal, 5 represents sleep , 6 represents free time\n";
         String r3= "Type in numbers to represent your schedule\n";
-        return r3+ rule + r2 + day;
+        String r4="You can only type in at most three numbers. Symbols and letters are valid inputs!\n";
+        return r3+ rule + r2  + r4 + day;
 
     }
     public boolean checkLetter() {
