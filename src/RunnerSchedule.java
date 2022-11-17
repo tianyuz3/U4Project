@@ -2,10 +2,6 @@ import java.util.Scanner;
 public class RunnerSchedule {
 
     public static void main(String[] args) {
-        String remorning="";
-        String renoon="";
-        String reafter="";
-        String reevening="";
         Schedule input = new Schedule("");
         System.out.println(input.toString());
         Scanner m = new Scanner(System.in);
@@ -28,7 +24,7 @@ public class RunnerSchedule {
             }
         } else {
             System.out.println(input.morning());
-            remorning = m.nextLine();
+
         }
         System.out.println("Type in your noon schedule: ");
         Scanner n = new Scanner(System.in);
@@ -47,7 +43,7 @@ public class RunnerSchedule {
             }
         } else {
             System.out.println(input.noon());
-            renoon = n.nextLine();
+
         }
 
         System.out.println("Type in your afternoon schedule: ");
@@ -67,7 +63,6 @@ public class RunnerSchedule {
             }
         } else {
             System.out.println(input.afternoon());
-           reafter = a.nextLine();
         }
 
         System.out.println("Type in your evening schedule: ");
@@ -79,16 +74,24 @@ public class RunnerSchedule {
             evening = e.nextLine();
             input.changeSchedule(evening);
         }
-        if (input.evening().indexOf("Don't") != -1) {
-            while (input.evening().contains("Your")) {
+        if (input.evening().indexOf("Do") != -1) {
+            while (input.evening().contains("Do")) {
                 System.out.println(input.evening());
                 evening = e.nextLine();
                 input.changeSchedule(evening);
             }
-        } else {
+        } else{
             System.out.println(input.evening());
-            reevening = e.nextLine();
         }
-        System.out.println(remorning);
+        System.out.println("Here is your schedule for the day:");
+        System.out.println("Morning:");
+        System.out.print(input.toSchedule(morning));
+        System.out.println("Noon:");
+        System.out.print(input.toSchedule(noon));
+        System.out.println("Afternoon:");
+        System.out.print(input.toSchedule(afternoon));
+        System.out.println("Evening:");
+        System.out.print(input.toSchedule(evening));
+
     }
 }

@@ -99,7 +99,7 @@ public class Schedule {
             anoon="Your afternoon schedule is too stressful, fix it!";
         }
         else{
-            anoon="Don't forget to watch the sunset!";
+            anoon="Nice afternoon schedule!";
         }
      return anoon;
     }
@@ -123,7 +123,7 @@ public class Schedule {
             night="Don't stress yourself out at night! Let's relax!";
         }
         else{
-           night= "Good night! Get ready for your next day of the adventure!";
+           night= "Good night!";
         }
         return night;
     }
@@ -133,7 +133,7 @@ public class Schedule {
         String rule= "1 represent work time, 2 represent screen time, 3 represent sports \n";
         String r2="4 represents meal, 5 represents sleep , 6 represents free time\n";
         String r3= "Type in numbers to represent your schedule\n";
-        String r4="You can only type in at most three numbers. Symbols and letters are valid inputs!\n";
+        String r4="You can only type in at most three numbers. Symbols and letters are not valid inputs!\n";
         return r3+ rule + r2  + r4 + day;
 
     }
