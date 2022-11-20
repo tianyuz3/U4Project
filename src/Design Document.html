@@ -1,31 +1,80 @@
 Schedule.java
 Constructor:
 A default constructor that takes no parameters
+A constructor that takes one Sting as parameter.
 
 variables:
-private int event
+private event event
 numbers represents different events, for instance 1 represent work, 2 represent free time
-3 represent sport, 4 represent meal , 5 represent sleep,  6 represent screen time
-private int time
+3 represent sport, 4 represent meal , 5 represent sleep,  6 represent screen time.(The numbers
+are stored as String)
+
+private String letter
+This variable include all 26 letters, either capitalized or lowercase.
+
+private String symbol
+This variable include all the special symbols in the keyboard.
 
 Methods:
-public boolean stressful
-This method determine the status of the user at a specific time period.
-Return true if it's too stressful for user to do that even at certain time, return false otherwise.
-public boolean harmful
-This method determine whether the user's action was harmful at a specific period.
-For instance if the user is sleeping at noon, this method will return true.
+public void changeSchedule(String event)
+This method can change the private variable event to the value of the parameter "event".
 
-public String morning
-public String noon
-public String afternoon
-public String evening
-for these four methods, if both harmful and stressful are true, make a new schedule for the user
-If one of the condition is  true, fix user's schedule
-if neither of the condition is true, keep user's schedule
+public String dayPick()
+return a random day from Monday through Sunday.
 
-Main.java
-Ask user to type in their morning, noon, afternoon and evening schedule at a random given day
-print their schedule, and tell them result of evaluation of their schedule
-Let user themselves to fix their schedule until their schedule is reasonable
-print out the fixed schedule
+public String morning()
+return a String that tells the user whether their morning schedule is stressful or not.
+
+public String noon()
+return a string that tells the user whether they need to fix their noon schedule or their schedule
+is healthy enough.
+
+public String afternoon()
+return a string that tells the user whether their afternoon schedule is reasonable or stressful.
+
+public String evening()
+return a string that tells the user whether their night schedule is good or too stressful.
+
+public String toString()
+returns the basic instruction and rule of the program, and user dayPick() method
+to let the user type in their schedule in a random day between Monday through Sunday.
+
+private boolean checkLetter()
+return true if user's input does not contain any letters, otherwise return false.
+
+private boolean checkValue()
+return false is user's input have numbers that are great than 6 or 0, otherwise return true.
+
+private boolean checkSymbol()
+return false is user's input contains special symbol, otherwise return true.
+
+public String limit()
+returns a string that notify the user what should not be included in their input, if
+any of the check method return false, otherwise if all of the check method are true, then it will
+return a String that allows the program to keep running.
+
+public String toSchedule(String numeric)
+This method turns the number that the user entered to the corresponding event, and return
+the events as String.
+
+
+RunnerSchedule.java
+1.Make a new object called input with a default constructor.
+2.Call the toString() method to introduce the basic rule and instruction to the user.
+3.Ask the user to type in their morning schedule, if it is too stressful, then the
+program will ask the user to fix their schedule until it's healthy. Stored the healthy schedule
+to a String variable called morning.
+4.Ask the user to type in their noon schedule, if it's too stressful, then the program will let
+the user fix their schedule until the program think it's healthy.Stored the final user input to
+a String variable called noon.
+5.Ask the user to type in their afternoon schedule, if it's not reasonable, then the program
+will ask the user to fix their schedule until it's healthy. Stored user's final input to a String
+variable called afternoon. Create another object called input2 that take the value of
+afternoon as parameter.
+6.Ask the user to type in their evening schedule, if it's too stressful, the program will ask
+the user to type in another evening schedule until it is healthy. Stored the final user input
+to a String variable called evening.
+(The program will check whether the user's input is a valid input or not for step 3-6, if the
+user typed in something that's considered invalid, the program will ask the user to type again,and
+address why their input is not valid.)
+7.Finally print out the revised schedule for different time period of the day.
