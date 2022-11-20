@@ -6,8 +6,10 @@ public class Schedule {
     private String letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     private String symbol = "!@#$%^&*()_+<>,./?;'-~";
+    public Schedule(){
 
-    public Schedule(String event ){
+    }
+    public Schedule(String event){
         this.event=event;
 
     }
@@ -129,12 +131,13 @@ public class Schedule {
     }
 
     public String toString(){
+        String box = "------------------------------------------\n";
         String day= "Type in your " + dayPick() + " Schedule starting with morning: ";
-        String rule= "1 represent work time, 2 represent screen time, 3 represent sports \n";
-        String r2="4 represents meal, 5 represents sleep , 6 represents free time\n";
+        String rule= "1 = work time, 2 = screen time, 3 = sports \n";
+        String r2="4 = meal, 5 = sleep , 6 = free time\n";
         String r3= "Type in numbers to represent your schedule\n";
         String r4="You can only type in at most three numbers. Symbols and letters are not valid inputs!\n";
-        return r3+ rule + r2  + r4 + day;
+        return box + r3+ rule + r2  + r4 + box + day ;
 
     }
     public boolean checkLetter() {
@@ -160,7 +163,15 @@ public class Schedule {
 
                 return true;
     }
-    public boolean checkSymbol() {
+    private boolean checkValue(){
+        if (event.contains("7") || event.contains("8")|| event.contains("9")|| event.contains("0")){
+            return false;
+        } else{
+            return true;
+        }
+    }
+
+    private boolean checkSymbol() {
 
         String sub;
         int count = 0;
@@ -184,7 +195,9 @@ public class Schedule {
                 return false;
     }
     public String limit() {
-
+        if(!checkValue()){
+            return "Your input should not be 0 or any number that's great than 6";
+        }
         if (event.length() > 3) {
             if (!checkLetter() && !checkSymbol()) {
                 return "You can only enter at most 3 numbers, letters and symbols are not valid input";
