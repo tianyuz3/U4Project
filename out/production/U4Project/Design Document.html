@@ -1,28 +1,24 @@
 Schedule.java
 Constructor:
 A default constructor that takes no parameters
+A constructor that takes one Sting as parameter.
 
 variables:
-private int event
+private event event
 numbers represents different events, for instance 1 represent work, 2 represent free time
-3 represent sport, 4 represent meal , 5 represent sleep,  6 represent screen time
-private int time
+3 represent sport, 4 represent meal , 5 represent sleep,  6 represent screen time.(The numbers
+are stored as String)
+
+private String letter
+This variable include all 26 letters, either capitalized or lowercase.
+
+private String symbol
+This variable include all the special symbols in the keyboard.
 
 Methods:
-public boolean stressful
-This method determine the status of the user at a specific time period.
-Return true if it's too stressful for user to do that even at certain time, return false otherwise.
-public boolean harmful
-This method determine whether the user's action was harmful at a specific period.
-For instance if the user is sleeping at noon, this method will return true.
+public void changeSchedule(String event)
+This method can change the schedule to the
 
-public String morning
-public String noon
-public String afternoon
-public String evening
-for these four methods, if both harmful and stressful are true, make a new schedule for the user
-If one of the condition is  true, fix user's schedule
-if neither of the condition is true, keep user's schedule
 
 Main.java
 Ask user to type in their morning, noon, afternoon and evening schedule at a random given day

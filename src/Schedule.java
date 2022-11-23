@@ -151,7 +151,6 @@ public class Schedule {
                 count++;
             } else {
                 i++;
-
             }
         }
             if (count != 0) {
@@ -160,7 +159,6 @@ public class Schedule {
             {
                 return true;
             }
-
                 return true;
     }
     private boolean checkValue(){
