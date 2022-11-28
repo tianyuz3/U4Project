@@ -59,6 +59,7 @@ public class RunnerSchedule {
             while (input.afternoon().contains("Your")) {
                 System.out.println(input.afternoon());
                 afternoon = a.nextLine();
+                input.changeSchedule(afternoon);
             }
         } else {
             System.out.println(input.afternoon());
